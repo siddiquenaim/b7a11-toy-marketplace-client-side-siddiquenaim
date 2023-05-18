@@ -1,10 +1,10 @@
-import React from "react";
 import "./Banner.css";
+import Slider from "./Slider";
 
 const Banner = () => {
   return (
     <div className="banner">
-      <h1>Banner here</h1>
+      <Slider></Slider>
     </div>
   );
 };
