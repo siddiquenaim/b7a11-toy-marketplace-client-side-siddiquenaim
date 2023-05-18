@@ -3,17 +3,20 @@ import logo from "../../assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="footer p-10  bg-[#FCF3EC] text-black">
+    <footer className="footer lg:flex lg:flex-row-reverse lg:justify-between p-10  bg-[#FCF3EC] text-black">
       <div>
-        <img style={{ height: "45px" }} src={logo} alt="" />
-        <p>
+        <div className="normal-case text-xl font-bold flex gap-4 items-center">
+          <img style={{ height: "45px" }} src={logo} alt="" />
+          <span>Bricktopia</span>
+        </div>
+        <p className="text-md">
           Bricktopia Industries Ltd.
           <br />
-          Providing reliable tech since 2011
+          <span>Copyright © 2023 - All right reserved</span>
         </p>
       </div>
       <div>
-        <span className="footer-title">Social</span>
+        <span className="footer-title">Contact Us</span>
         <div className="grid grid-flow-col gap-4">
           <a>
             <svg
@@ -48,6 +51,12 @@ const Footer = () => {
               <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
             </svg>
           </a>
+        </div>
+        <div>
+          Brickopedia Headquarters <br />
+          123 Brick Lane <br />
+          Blockville, BRK 45678 <br />
+          Brickland
         </div>
       </div>
     </footer>

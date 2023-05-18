@@ -13,17 +13,26 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="space-x-9 menu-horizontal px-1 font-semibold">
-          <NavLink className="hover:bg-[#A70B22] py-2 px-3 rounded-lg">
+          <NavLink to="/" className="hover:bg-[#A70B22] py-2 px-3 rounded-lg">
             Home
           </NavLink>
-          <NavLink className="hover:bg-[#A70B22] py-2 px-3 rounded-lg">
-            My toy
+          <NavLink
+            to="/my-toys"
+            className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
+          >
+            My toys
           </NavLink>
-          <NavLink className="hover:bg-[#A70B22] py-2 px-3 rounded-lg">
+          <NavLink
+            to="/add-a-toy"
+            className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
+          >
             Add a toy
           </NavLink>
-          <NavLink className="hover:bg-[#A70B22] py-2 px-3 rounded-lg">
-            Blog
+          <NavLink
+            to="/blogs"
+            className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
+          >
+            Blogs
           </NavLink>
         </ul>
       </div>
@@ -53,23 +62,35 @@ const Navbar = () => {
             className="menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40 text-black text-center font-semibold"
           >
             <li>
-              <NavLink className="hover:bg-[#A70B22] hover:text-white py-2 px-3 rounded-lg">
+              <NavLink
+                to="/"
+                className="hover:bg-[#A70B22] hover:text-white py-2 px-3 rounded-lg"
+              >
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg">
-                My toy
+              <NavLink
+                to="my-toys"
+                className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+              >
+                My toys
               </NavLink>
             </li>
             <li>
-              <NavLink className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg">
+              <NavLink
+                to="/add-a-toy"
+                className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+              >
                 Add a toy
               </NavLink>
             </li>
             <li>
-              <NavLink className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg">
-                Blog
+              <NavLink
+                to="/blogs"
+                className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+              >
+                Blogs
               </NavLink>
             </li>
           </ul>
