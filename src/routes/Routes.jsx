@@ -8,6 +8,7 @@ import AddAToy from "../pages/AddAToy/AddAToy";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import SingleToy from "../pages/SingleToy/SingleToy";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -39,8 +40,14 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/toy-details",
-        element: <SingleToy></SingleToy>,
+        path: "/toy-details/:id",
+        element: (
+          <PrivateRoute>
+            <SingleToy></SingleToy>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allData/${params.id}`),
       },
     ],
   },
