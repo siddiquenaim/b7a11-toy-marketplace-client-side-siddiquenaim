@@ -4,7 +4,12 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="navbar bg-[#CF102D] text-white py-5">
       <div className="navbar-start">
@@ -18,18 +23,22 @@ const Navbar = () => {
           <NavLink to="/" className="hover:bg-[#A70B22] py-2 px-3 rounded-lg">
             Home
           </NavLink>
-          <NavLink
-            to="/my-toys"
-            className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
-          >
-            My toys
-          </NavLink>
-          <NavLink
-            to="/add-a-toy"
-            className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
-          >
-            Add a toy
-          </NavLink>
+          {user && (
+            <NavLink
+              to="/my-toys"
+              className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
+            >
+              My toys
+            </NavLink>
+          )}
+          {user && (
+            <NavLink
+              to="/add-a-toy"
+              className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
+            >
+              Add a toy
+            </NavLink>
+          )}
           <NavLink
             to="/blogs"
             className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
@@ -37,24 +46,38 @@ const Navbar = () => {
             Blogs
           </NavLink>
 
-          <NavLink
-            to="/login"
-            className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
-          >
-            Login
-          </NavLink>
+          {user ? (
+            <NavLink
+              onClick={handleLogOut}
+              className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
+            >
+              Logout
+            </NavLink>
+          ) : (
+            <div className="py-2 px-3">
+              <NavLink
+                to="/login"
+                className="hover:bg-[#A70B22] hover:text-white mr-9 py-2 px-3 rounded-lg"
+              >
+                Login
+              </NavLink>
 
-          <NavLink
-            to="/register"
-            className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
-          >
-            Register
-          </NavLink>
+              <NavLink
+                to="/register"
+                className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+              >
+                Register
+              </NavLink>
+            </div>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-        <div className="w-10 rounded-full">
-          {user ? <img src={user.photoURL} alt="" /> : <p></p>}
+        <div
+          className={`w-10 rounded-full ${user && "tooltip tooltip-left"}`}
+          data-tip={user && user.displayName}
+        >
+          {user ? <img src={user?.photoURL} alt="" /> : <p></p>}
         </div>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -109,22 +132,36 @@ const Navbar = () => {
                 Blogs
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/login"
-                className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
-              >
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/register"
-                className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
-              >
-                Register
-              </NavLink>
-            </li>
+
+            {user ? (
+              <li>
+                <NavLink
+                  onClick={handleLogOut}
+                  className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
+                >
+                  Logout
+                </NavLink>
+              </li>
+            ) : (
+              <div>
+                <li>
+                  <NavLink
+                    to="/login"
+                    className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/register"
+                    className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+                  >
+                    Register
+                  </NavLink>
+                </li>
+              </div>
+            )}
           </ul>
         </div>
       </div>
