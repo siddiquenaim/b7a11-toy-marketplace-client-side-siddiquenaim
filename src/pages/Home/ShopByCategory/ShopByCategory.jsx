@@ -17,8 +17,8 @@ const ShopByCategory = () => {
   };
 
   return (
-    <div className=" mx-auto w-[95%] mt-20">
-      <h1 className="mb-10 text-center text-5xl">Shop By Category</h1>
+    <div className=" mx-auto w-[95%] my-20">
+      <h1 className="mb-10 text-center text-5xl font-bold">Shop By Category</h1>
       <div className="text-center w-[100%] mx-auto mb-5 font-bold text-xl">
         <p className="mb-4">Choose which lego you wanna buy</p>
         <div className="lg:flex justify-center items-center space-y-4  lg:space-y-0 lg:space-x-9 ">
