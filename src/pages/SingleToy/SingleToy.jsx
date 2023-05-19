@@ -3,10 +3,60 @@ import { useLoaderData } from "react-router-dom";
 
 const SingleToy = () => {
   const toyDetails = useLoaderData();
-  console.log(toyDetails);
+  const {
+    availableQuantity,
+    details,
+    name,
+    pictureUrl,
+    price,
+    rating,
+    sellerEmail,
+    sellerName,
+    subcategory,
+    _id,
+  } = toyDetails;
+
   return (
-    <div>
-      <h1>single toy details here browski: {toyDetails.name}</h1>
+    <div className="py-20">
+      <h1 className="text-5xl text-center font-bold">{name}</h1>
+
+      <div className="lg:flex w-100 justify-evenly mt-10">
+        <img
+          className="rounded-lg lg:w-[50%] mx-auto"
+          style={{ maxHeight: "400px", maxWidth: "400px" }}
+          src={pictureUrl}
+          alt=""
+        />
+        <div className="lg:w-[50%] mx-auto text-left flex items-center">
+          <div className="lg:w-[75%] text-xl font-semibold">
+            <p>
+              Rating: <span className="font-normal">{rating}</span>
+            </p>
+            <p>
+              Available Quantity:{" "}
+              <span className="font-normal">{availableQuantity} </span>
+            </p>
+            <p>
+              Price: <span className="font-normal">{price}$</span>
+            </p>
+            <p className="mb-3">
+              Details: <span className="font-normal">{details}</span>
+            </p>
+            <p>
+              Seller Name: <span className="font-normal">{sellerName}</span>
+            </p>
+            <p>
+              Seller Email: <span className="font-normal">{sellerEmail}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-15 flex justify-center items-center">
+        <button className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none mr-5 text-white">
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 };
