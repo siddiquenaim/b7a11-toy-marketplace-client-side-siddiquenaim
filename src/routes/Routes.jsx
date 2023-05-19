@@ -7,6 +7,7 @@ import MyToys from "../pages/MyToys/MyToys";
 import AddAToy from "../pages/AddAToy/AddAToy";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import SingleToy from "../pages/SingleToy/SingleToy";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/toy-details",
+        element: <SingleToy></SingleToy>,
       },
     ],
   },

@@ -14,8 +14,12 @@ const Navbar = () => {
     <div className="navbar bg-[#CF102D] text-white py-5">
       <div className="navbar-start">
         <div className="normal-case text-xl font-bold px-3 flex gap-4 items-center">
-          <img style={{ height: "45px" }} src={logo} alt="" />
-          <span>Bricktopia</span>
+          <Link to="/">
+            <img style={{ height: "45px" }} src={logo} alt="" />
+          </Link>
+          <span>
+            <Link to="/">Bricktopia</Link>
+          </span>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -77,7 +81,11 @@ const Navbar = () => {
           className={`w-10 rounded-full ${user && "tooltip tooltip-left"}`}
           data-tip={user && user.displayName}
         >
-          {user ? <img src={user?.photoURL} alt="" /> : <p></p>}
+          {user ? (
+            <img className="rounded-full" src={user?.photoURL} alt="" />
+          ) : (
+            <p></p>
+          )}
         </div>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

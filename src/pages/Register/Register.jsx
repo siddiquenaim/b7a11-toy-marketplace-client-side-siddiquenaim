@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -16,11 +17,13 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
+        setError("");
         updateUserData(result.user, name, photo);
         navigate("/login");
+        form.reset();
       })
       .catch((error) => {
-        console.log(error.message);
+        setError(error.message);
       });
   };
 
@@ -97,6 +100,11 @@ const Register = () => {
               </button>
             </div>
           </form>
+          {error ? (
+            <p className="py-4 text-red-600 font-semibold">{error} </p>
+          ) : (
+            ""
+          )}
           <p className="text-center pb-4">
             Already have an account?{" "}
             <Link to="/login" className="text-[#CF102D]">
