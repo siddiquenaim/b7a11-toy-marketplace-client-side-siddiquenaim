@@ -1,5 +1,5 @@
+import Slider from "../Slider/Slider";
 import "./Banner.css";
-import Slider from "./Slider";
 
 const Banner = () => {
   return (

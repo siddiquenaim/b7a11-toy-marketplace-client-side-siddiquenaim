@@ -11,8 +11,8 @@ const imageSlide = [
   },
   {
     url: "slider-3.jpg",
-    title: "Unleash Your Creativity",
-    body: "Experience the joy of LEGO building. With a vast selection of themed sets, from superheroes to famous landmarks, LEGO offers a world of fun for all ages.",
+    title: "Explore the World of LEGO",
+    body: "Immerse yourself in the imaginative world of LEGO. From iconic cityscapes to epic space adventures, LEGO sets offer endless possibilities for building, creating, and playing.",
   },
   {
     url: "slider-4.jpg",
