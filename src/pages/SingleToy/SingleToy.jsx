@@ -23,7 +23,7 @@ const SingleToy = () => {
       <div className="lg:flex w-100 justify-evenly mt-10">
         <img
           className="rounded-lg lg:w-[50%] mx-auto"
-          style={{ maxHeight: "400px", maxWidth: "400px" }}
+          style={{ maxHeight: "500px", maxWidth: "400px" }}
           src={pictureUrl}
           alt=""
         />

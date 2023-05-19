@@ -49,6 +49,12 @@ const Navbar = () => {
           >
             Blogs
           </NavLink>
+          <NavLink
+            to="/all-toys"
+            className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
+          >
+            All toys
+          </NavLink>
 
           {user ? (
             <NavLink
@@ -138,6 +144,14 @@ const Navbar = () => {
                 className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
               >
                 Blogs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/all-toys"
+                className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+              >
+                All toys
               </NavLink>
             </li>
 
