@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const name = form.name.value;
+    const photo = form.photo.value;
+
+    createUser(email, password)
+      .then((result) => {
+        updateUserData(result.user, name, photo);
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const updateUserData = (user, name, photo) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
   return (
     <div className="flex items-center justify-center min-h-screen bg-base-200 ">
       <div className="">
@@ -9,7 +37,7 @@ const Register = () => {
           Please Register
         </h1>
         <div className="card flex-shrink-0 w-full max-w-sm lg:max-w-3xl shadow-2xl bg-base-100 lg:px-10">
-          <form className="card-body">
+          <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -24,12 +52,12 @@ const Register = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Image URL</span>
+                <span className="label-text">photo URL</span>
               </label>
               <input
-                name="image"
+                name="photo"
                 type="text"
-                placeholder="Image URL"
+                placeholder="photo URL"
                 className="input input-bordered"
                 required
               />
