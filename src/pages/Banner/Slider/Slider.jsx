@@ -8,7 +8,7 @@ const Slider = () => {
     setCurrentState(currentState);
   };
 
-  console.log(imageSlide[currentState]?.title);
+  // console.log(imageSlide[currentState]?.title);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -21,7 +21,7 @@ const Slider = () => {
     return () => clearTimeout(timer);
   }, [currentState]);
 
-  console.log(imageSlide[currentState]?.url);
+  // console.log(imageSlide[currentState]?.url);
   const bgImgStyle = {
     backgroundImage: `url(/${imageSlide[currentState]?.url})`,
     backgroundPosition: "center",

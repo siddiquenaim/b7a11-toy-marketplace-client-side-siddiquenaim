@@ -34,6 +34,20 @@ const Navbar = () => {
           >
             Blogs
           </NavLink>
+
+          <NavLink
+            to="/login"
+            className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+          >
+            Login
+          </NavLink>
+
+          <NavLink
+            to="/register"
+            className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+          >
+            Register
+          </NavLink>
         </ul>
       </div>
       <div className="navbar-end">
@@ -91,6 +105,22 @@ const Navbar = () => {
                 className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
               >
                 Blogs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/login"
+                className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+              >
+                Login
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/register"
+                className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
+              >
+                Register
               </NavLink>
             </li>
           </ul>
