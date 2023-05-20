@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -22,6 +22,13 @@ const Login = () => {
         form.reset();
       })
       .catch((error) => setError(error.message));
+  };
+  const handleGoogleLogin = () => {
+    googleSignIn().then((result) => {
+      console.log(result);
+      setError("");
+      navigate(from);
+    });
   };
   return (
     <div className="flex items-center justify-center min-h-screen bg-base-200">
@@ -69,7 +76,14 @@ const Login = () => {
           ) : (
             ""
           )}
-          <p className="text-center pb-4">
+          <div className="divider">OR</div>
+          <button
+            onClick={handleGoogleLogin}
+            className="btn btn-block bg-blue-500 border-none hover:bg-blue-800"
+          >
+            Login with Google
+          </button>
+          <p className="text-center pb-4 mt-4">
             New at Bricktopia?{" "}
             <Link to="/register" className="text-[#CF102D]">
               Register
