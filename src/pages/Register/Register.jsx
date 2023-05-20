@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, logOut } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -19,6 +20,7 @@ const Register = () => {
       .then((result) => {
         setError("");
         updateUserData(result.user, name, photo);
+        signOut();
         navigate("/login");
         form.reset();
       })
@@ -32,6 +34,12 @@ const Register = () => {
       displayName: name,
       photoURL: photo,
     });
+  };
+
+  const signOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => setError(error.message));
   };
   return (
     <div className="flex items-center justify-center min-h-screen bg-base-200 ">
@@ -101,13 +109,15 @@ const Register = () => {
             </div>
           </form>
           {error ? (
-            <p className="py-4 text-red-600 font-semibold">{error} </p>
+            <p className="py-4 text-red-600 font-semibold text-center">
+              {error}{" "}
+            </p>
           ) : (
             ""
           )}
           <p className="text-center pb-4">
             Already have an account?{" "}
-            <Link to="/login" className="text-[#CF102D]">
+            <Link to="/login" className="text-[#CF102D] font-bold">
               Login
             </Link>{" "}
           </p>

@@ -72,7 +72,9 @@ const Login = () => {
             </div>
           </form>
           {error ? (
-            <p className="py-4 text-red-600 font-semibold">{error} </p>
+            <p className="py-4 text-red-600 font-semibold text-center">
+              {error}{" "}
+            </p>
           ) : (
             ""
           )}
@@ -85,7 +87,7 @@ const Login = () => {
           </button>
           <p className="text-center pb-4 mt-4">
             New at Bricktopia?{" "}
-            <Link to="/register" className="text-[#CF102D]">
+            <Link to="/register" className="text-[#CF102D] font-bold">
               Register
             </Link>{" "}
           </p>
