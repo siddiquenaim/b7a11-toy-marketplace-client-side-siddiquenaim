@@ -1,12 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
-  const allToys = useLoaderData();
-  console.log(allToys);
+  const [allToys, setAllToys] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const toys = useLoaderData();
+  useEffect(() => {
+    setAllToys(toys);
+  }, [toys]);
+
+  const handleSearchText = () => {
+    fetch(`http://localhost:5000/toySearchByName/${searchText}`)
+      .then((res) => res.json())
+      .then((data) => setAllToys(data));
+    if (searchText == "") {
+      setAllToys(toys);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearchText();
+    }
+  };
+
   return (
     <div>
-      <h1 className="text-5xl text-center font-bold my-10">All toys</h1>
+      <h1 className="text-5xl text-center font-bold mt-10">All toys</h1>
+      <div className="flex items-center justify-center my-5">
+        {" "}
+        <span>
+          <button
+            onClick={handleSearchText}
+            className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none normal-case text-white mr-2"
+          >
+            Search
+          </button>
+        </span>
+        <input
+          onChange={(e) => setSearchText(e.target.value)}
+          onKeyDown={handleKeyDown}
+          type="text"
+          placeholder="Search Lego"
+          className="input input-bordered input-error w-full max-w-xs"
+        />
+      </div>
       <div className="overflow-x-auto">
         <table className="table w-[95%] lg:w-[90%] mx-auto">
           {/* head */}
