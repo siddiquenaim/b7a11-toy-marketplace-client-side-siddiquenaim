@@ -36,12 +36,20 @@ const SingleToy = () => {
 
       <div className="lg:flex w-100 justify-evenly mt-10">
         <img
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
           className="rounded-lg lg:w-[50%] mx-auto max-h-[500px] max-w-[250px] lg:max-w-[400px]"
           src={pictureUrl}
           alt=""
         />
         <div className="lg:w-[50%] mx-auto text-left flex items-center">
-          <div className="w-[90%] lg:w-[75%] text-xl font-semibold mx-auto">
+          <div
+            className="w-[90%] lg:w-[75%] text-xl font-semibold mx-auto"
+            data-aos="flip-right"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+          >
             <p>
               Rating: <span className="font-normal">{rating}</span>
             </p>
@@ -67,6 +75,9 @@ const SingleToy = () => {
 
       <div className="mt-15 flex justify-center items-center">
         <button
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
           onClick={handleAddToCart}
           className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none mr-5 text-white mt-5"
         >
