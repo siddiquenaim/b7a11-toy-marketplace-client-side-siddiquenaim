@@ -45,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: "all-toys",
         element: <AllToys></AllToys>,
+        loader: () =>
+          fetch(
+            "https://toy-marketplace-server-nine-sigma.vercel.app/allData/all"
+          ),
       },
       {
         path: "/login",
