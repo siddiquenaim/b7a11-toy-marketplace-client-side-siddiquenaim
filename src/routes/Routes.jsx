@@ -11,6 +11,7 @@ import SingleToy from "../pages/SingleToy/SingleToy";
 import PrivateRoute from "./PrivateRoute";
 import AllToys from "../pages/AllToys/AllToys";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import EditDetails from "../pages/EditDetails/EditDetails";
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +44,19 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "all-toys",
+        path: "/edit-details/:id",
+        element: (
+          <PrivateRoute>
+            <EditDetails></EditDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://toy-marketplace-server-nine-sigma.vercel.app/toy/${params.id}`
+          ),
+      },
+      {
+        path: "/all-toys",
         element: <AllToys></AllToys>,
         loader: () =>
           fetch(

@@ -74,7 +74,7 @@ const MyToys = () => {
                 <td>{toy.availableQuantity}</td>
                 <td>{toy.details}</td>
                 <td>
-                  <Link to="/edit-details">
+                  <Link to={`/edit-details/${toy._id}`}>
                     <button className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none normal-case text-white">
                       Edit Details
                     </button>
