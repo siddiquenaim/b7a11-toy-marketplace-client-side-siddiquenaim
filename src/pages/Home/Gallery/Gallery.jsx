@@ -5,7 +5,7 @@ const Gallery = () => {
   const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/gallery")
+    fetch("https://toy-marketplace-server-nine-sigma.vercel.app/gallery")
       .then((res) => res.json())
       .then((data) => setImageUrls(data));
   }, []);

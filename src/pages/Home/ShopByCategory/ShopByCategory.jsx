@@ -7,7 +7,9 @@ const ShopByCategory = () => {
   const [activeTab, setActiveTab] = useState("all");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allData/${activeTab}`)
+    fetch(
+      `https://toy-marketplace-server-nine-sigma.vercel.app/allData/${activeTab}`
+    )
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [activeTab]);
