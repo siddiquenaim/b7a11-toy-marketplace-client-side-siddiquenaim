@@ -10,13 +10,33 @@ const AllToys = () => {
   }, [toys]);
 
   const handleSearchText = () => {
-    fetch(`http://localhost:5000/toySearchByName/${searchText}`)
+    fetch(
+      `https://toy-marketplace-server-nine-sigma.vercel.app/toySearch?text=${searchText}`
+    )
       .then((res) => res.json())
       .then((data) => setAllToys(data));
     if (searchText == "") {
       setAllToys(toys);
     }
   };
+  // const handleSearchText = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:5000/toySearch?text=${searchText}`
+  //     );
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       // Process the returned data or update your UI
+  //       console.log(data);
+  //     } else {
+  //       // Handle the error
+  //       console.error("Error:", response.status);
+  //     }
+  //   } catch (error) {
+  //     // Handle network or other errors
+  //     console.error("Error:", error);
+  //   }
+  // };
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
