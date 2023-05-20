@@ -3,9 +3,14 @@ import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 
 const MyToys = () => {
+  {
+    document.title = "My Toys - Bricktopia";
+  }
+
   const [toys, setToys] = useState([]);
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/mytoys?sellerEmail=${user?.email}`;
+
+  const url = `https://toy-marketplace-server-nine-sigma.vercel.app/mytoys?sellerEmail=${user?.email}`;
 
   useEffect(() => {
     fetch(url)
@@ -16,9 +21,12 @@ const MyToys = () => {
   const handleDelete = (id) => {
     const proceed = confirm("Are you sure you want to delete?");
     if (proceed) {
-      fetch(`http://localhost:5000/mytoys/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://toy-marketplace-server-nine-sigma.vercel.app/mytoys/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

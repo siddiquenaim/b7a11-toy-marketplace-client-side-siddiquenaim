@@ -3,12 +3,17 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const Login = () => {
+  {
+    document.title = "Login - Bricktopia";
+  }
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from || "/";
-  console.log(location?.state?.from);
+
+  // console.log(location?.state?.from);
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -30,10 +35,16 @@ const Login = () => {
       navigate(from);
     });
   };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-base-200">
       <div className="">
         <h1 className="text-5xl font-bold text-center mb-10">Please Login</h1>
+        {location?.state?.from && (
+          <p className="pb-5 text-2xl text-red-600 font-semibold text-center">
+            You must login first to have the access!
+          </p>
+        )}
         <div className="card flex-shrink-0 w-full max-w-sm lg:max-w-3xl shadow-2xl bg-base-100 lg:px-10">
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">

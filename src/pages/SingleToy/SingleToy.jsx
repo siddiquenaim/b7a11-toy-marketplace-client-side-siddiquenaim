@@ -16,6 +16,10 @@ const SingleToy = () => {
     _id,
   } = toyDetails;
 
+  {
+    document.title = `${name} - Bricktopia`;
+  }
+
   return (
     <div className="py-20">
       <h1 className="text-5xl text-center font-bold">{name}</h1>

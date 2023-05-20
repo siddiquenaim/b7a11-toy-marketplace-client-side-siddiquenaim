@@ -3,6 +3,9 @@ import { Link, useRouteError } from "react-router-dom";
 import errorPic from "/error.gif";
 
 const ErrorPage = () => {
+  {
+    document.title = "ERROR!";
+  }
   const { error, status } = useRouteError();
 
   return (

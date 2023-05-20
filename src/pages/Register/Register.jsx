@@ -4,6 +4,9 @@ import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  {
+    document.title = "Register - Bricktopia";
+  }
   const { createUser, logOut } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();

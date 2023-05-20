@@ -4,6 +4,9 @@ import Gallery from "../Gallery/Gallery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 
 const Home = () => {
+  {
+    document.title = "Home - Bricktopia";
+  }
   return (
     <div>
       <Banner></Banner>

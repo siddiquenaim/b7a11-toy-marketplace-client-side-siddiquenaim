@@ -3,6 +3,9 @@ import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import Select from "react-select";
 
 const AddAToy = () => {
+  {
+    document.title = "Add a Toy - Bricktopia";
+  }
   const { user } = useContext(AuthContext);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -38,7 +41,7 @@ const AddAToy = () => {
     };
     // console.log(toyInfo);
 
-    fetch("http://localhost:5000/allData", {
+    fetch("https://toy-marketplace-server-nine-sigma.vercel.app/allData", {
       method: "POST",
       headers: {
         "content-type": "application/json",

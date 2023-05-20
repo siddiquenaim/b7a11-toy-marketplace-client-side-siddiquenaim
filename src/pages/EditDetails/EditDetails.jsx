@@ -13,6 +13,10 @@ const EditDetails = () => {
     pictureUrl,
   } = toyInfo;
 
+  {
+    document.title = `Update ${name} - Bricktopia`;
+  }
+
   const handleUpdateToy = (event, id) => {
     event.preventDefault();
     const form = event.target;
@@ -33,16 +37,19 @@ const EditDetails = () => {
       subcategory,
     };
 
-    fetch(`http://localhost:5000/updateToy/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedToy),
-    })
+    fetch(
+      `https://toy-marketplace-server-nine-sigma.vercel.app/updateToy/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedToy),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount > 0) {
           alert("updated successfully");
           form.reset();

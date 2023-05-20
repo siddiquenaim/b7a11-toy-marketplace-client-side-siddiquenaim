@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
+  {
+    document.title = "All Toys - Bricktopia";
+  }
+
   const [allToys, setAllToys] = useState([]);
   const [searchText, setSearchText] = useState("");
   const toys = useLoaderData();
@@ -22,7 +26,7 @@ const AllToys = () => {
   // const handleSearchText = async () => {
   //   try {
   //     const response = await fetch(
-  //       `http://localhost:5000/toySearch?text=${searchText}`
+  //       `https://toy-marketplace-server-nine-sigma.vercel.app/toySearch?text=${searchText}`
   //     );
   //     if (response.ok) {
   //       const data = await response.json();
