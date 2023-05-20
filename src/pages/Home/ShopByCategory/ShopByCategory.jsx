@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 const ShopByCategory = () => {
   const [toys, setToys] = useState([]);
   const [activeTab, setActiveTab] = useState("all");
+  const [showMore, setShowMore] = useState(false);
+  const [hideButton, setHideButton] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -15,6 +17,11 @@ const ShopByCategory = () => {
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
+    setHideButton(true);
+  };
+
+  const handleShowMore = () => {
+    setShowMore(!showMore);
   };
 
   return (
@@ -54,8 +61,9 @@ const ShopByCategory = () => {
         </div>
       </div>
 
+      {/* show data */}
       <div className="grid lg:grid-cols-3  gap-5">
-        {toys.map((toy) => (
+        {toys.slice(0, !showMore ? 15 : toys.length).map((toy) => (
           <div
             key={toy._id}
             className="card w-full bg-base-100 shadow-xl border"
@@ -88,6 +96,26 @@ const ShopByCategory = () => {
           </div>
         ))}
       </div>
+
+      {!hideButton && (
+        <div className="flex justify-center items-center mt-10">
+          {!showMore ? (
+            <button
+              onClick={handleShowMore}
+              className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none text-white"
+            >
+              Show More
+            </button>
+          ) : (
+            <button
+              onClick={handleShowMore}
+              className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none text-white"
+            >
+              Show Less
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };

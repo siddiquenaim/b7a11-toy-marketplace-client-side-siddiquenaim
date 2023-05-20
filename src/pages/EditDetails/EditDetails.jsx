@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const EditDetails = () => {
   const toyInfo = useLoaderData();
@@ -51,7 +52,12 @@ const EditDetails = () => {
       .then((data) => {
         // console.log(data);
         if (data.modifiedCount > 0) {
-          alert("updated successfully");
+          Swal.fire({
+            icon: "success",
+            title: "Your lego has been updated!",
+            showConfirmButton: true,
+            timer: 1500,
+          });
           form.reset();
         }
       });
@@ -79,6 +85,7 @@ const EditDetails = () => {
               type="number"
               placeholder="Price"
               className="input input-bordered w-[90%]"
+              required
             />
           </div>
 
@@ -93,6 +100,7 @@ const EditDetails = () => {
               max="500"
               placeholder="Available Quantity"
               className="input input-bordered w-[90%]"
+              required
             />
           </div>
           <div className="form-control w-[100%] col-span-2">
@@ -104,6 +112,7 @@ const EditDetails = () => {
               type="text"
               placeholder="Detail Description"
               className="input input-bordered input-lg w-[90%]"
+              required
             />
           </div>
           <div className="form-control mx-auto col-span-2">

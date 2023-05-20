@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SingleToy = () => {
   const toyDetails = useLoaderData();
@@ -19,6 +20,15 @@ const SingleToy = () => {
   {
     document.title = `${name} - Bricktopia`;
   }
+
+  const handleAddToCart = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Lego has been added to your cart!",
+      showConfirmButton: true,
+      timer: 1500,
+    });
+  };
 
   return (
     <div className="py-20">
@@ -56,7 +66,10 @@ const SingleToy = () => {
       </div>
 
       <div className="mt-15 flex justify-center items-center">
-        <button className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none mr-5 text-white mt-5">
+        <button
+          onClick={handleAddToCart}
+          className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none mr-5 text-white mt-5"
+        >
           Add to Cart
         </button>
       </div>

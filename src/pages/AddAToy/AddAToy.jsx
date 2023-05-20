@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import Select from "react-select";
+import Swal from "sweetalert2";
 
 const AddAToy = () => {
   {
@@ -49,7 +50,17 @@ const AddAToy = () => {
       body: JSON.stringify(toyInfo),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        if (data?.acknowledged) {
+          Swal.fire({
+            icon: "success",
+            title: "Your lego has been added!",
+            showConfirmButton: true,
+            timer: 1500,
+          });
+        }
+      });
   };
   return (
     <div className="mb-20 mt-10">
@@ -65,6 +76,7 @@ const AddAToy = () => {
               type="text"
               placeholder="Toy Name"
               className="input input-bordered w-[90%]"
+              required
             />
           </div>
           <div className="form-control w-[90%]">
@@ -76,6 +88,7 @@ const AddAToy = () => {
               type="text"
               placeholder="Image URL"
               className="input input-bordered w-[90%]"
+              required
             />
           </div>
           <div className="form-control w-[90%]">
@@ -113,6 +126,7 @@ const AddAToy = () => {
               onChange={setSelectedOption}
               options={options}
               className=" w-[90%]"
+              required
             />
           </div>
           <div className="form-control w-[90%]">
@@ -124,6 +138,7 @@ const AddAToy = () => {
               type="number"
               placeholder="Price"
               className="input input-bordered w-[90%]"
+              required
             />
           </div>
           <div className="form-control w-[90%]">
@@ -137,6 +152,7 @@ const AddAToy = () => {
               max="5"
               placeholder="Rating"
               className="input input-bordered w-[90%]"
+              required
             />
           </div>
           <div className="form-control w-[90%]">
@@ -150,6 +166,7 @@ const AddAToy = () => {
               max="500"
               placeholder="Available Quantity"
               className="input input-bordered w-[90%]"
+              required
             />
           </div>
           <div className="form-control w-[100%] col-span-2">
