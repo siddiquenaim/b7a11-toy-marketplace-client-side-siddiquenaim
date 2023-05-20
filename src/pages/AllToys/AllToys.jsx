@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
@@ -25,9 +25,9 @@ const AllToys = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-5xl text-center font-bold mt-10">All toys</h1>
-      <div className="flex items-center justify-center my-5">
+    <div className="mb-20 mt-10">
+      <h1 className="text-5xl text-center font-bold">All Toys</h1>
+      <div className="flex items-center justify-center my-5 w-[90%] mx-auto">
         {" "}
         <span>
           <button
@@ -46,7 +46,7 @@ const AllToys = () => {
         />
       </div>
       <div className="overflow-x-auto">
-        <table className="table w-[95%] lg:w-[90%] mx-auto">
+        <table className="table w-[90%] lg:w-[90%] mx-auto">
           {/* head */}
           <thead>
             <tr>
@@ -70,9 +70,11 @@ const AllToys = () => {
                 <td>{toy.price}</td>
                 <td>{toy.availableQuantity}</td>
                 <td>
-                  <button className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none normal-case text-white">
-                    View Details
-                  </button>
+                  <Link to={`/toy-details/${toy?._id}`}>
+                    <button className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none normal-case text-white">
+                      View Details
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}

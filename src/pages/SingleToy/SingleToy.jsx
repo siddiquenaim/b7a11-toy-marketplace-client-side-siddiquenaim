@@ -22,13 +22,12 @@ const SingleToy = () => {
 
       <div className="lg:flex w-100 justify-evenly mt-10">
         <img
-          className="rounded-lg lg:w-[50%] mx-auto"
-          style={{ maxHeight: "500px", maxWidth: "400px" }}
+          className="rounded-lg lg:w-[50%] mx-auto max-h-[500px] max-w-[250px] lg:max-w-[400px]"
           src={pictureUrl}
           alt=""
         />
         <div className="lg:w-[50%] mx-auto text-left flex items-center">
-          <div className="lg:w-[75%] text-xl font-semibold">
+          <div className="w-[90%] lg:w-[75%] text-xl font-semibold mx-auto">
             <p>
               Rating: <span className="font-normal">{rating}</span>
             </p>
@@ -53,7 +52,7 @@ const SingleToy = () => {
       </div>
 
       <div className="mt-15 flex justify-center items-center">
-        <button className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none mr-5 text-white">
+        <button className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none mr-5 text-white mt-5">
           Add to Cart
         </button>
       </div>
