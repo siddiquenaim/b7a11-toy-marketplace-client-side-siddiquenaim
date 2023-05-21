@@ -5,27 +5,31 @@ const ArticleSection = () => {
   const articles = [
     {
       id: 1,
-      image: "article1.jpg",
-      title: "Article 1",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      image: "lego1.avif",
+      title: "The Fun and Creativity of LEGO Building",
+      content:
+        "LEGO building is a popular hobby that allows individuals of all ages to unleash their creativity. With LEGO bricks, you can build intricate structures, vehicles, and even entire cities. The possibilities are endless!",
     },
     {
       id: 2,
-      image: "article2.jpg",
-      title: "Article 2",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      image: "lego2.avif",
+      title: "Exploring the World of LEGO City Sets",
+      content:
+        "LEGO City sets bring the excitement of urban life to your fingertips. From police stations to fire trucks, explore a wide range of LEGO City sets that allow you to create your own bustling metropolis.",
     },
     {
       id: 3,
-      image: "article3.jpg",
-      title: "Article 3",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      image: "lego3.avif",
+      title: "Building Realistic LEGO Cars and Super cars",
+      content:
+        "LEGO cars are not just toys; they are engineering marvels. Learn the techniques behind building realistic LEGO cars, from the sleek designs of sports cars to the ruggedness of off-road vehicles.",
     },
     {
       id: 4,
-      image: "article4.jpg",
-      title: "Article 4",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      image: "lego4.avif",
+      title: "Discovering Architectural Wonders with LEGO",
+      content:
+        "Architectural LEGO sets bring famous landmarks to life in brick form. Dive into the world of LEGO architecture and recreate iconic structures such as the Eiffel Tower, Taj Mahal, or Sydney Opera House.",
     },
   ];
 
@@ -43,7 +47,9 @@ const ArticleSection = () => {
               className="w-full h-48 object-cover mb-4"
             />
             <h2 className="text-xl font-bold mb-2">{article.title}</h2>
-            <p className="text-gray-700 mb-4">{article.content}</p>
+            <p className="text-gray-700 mb-4">
+              {article.content.slice(0, 100)}...
+            </p>
             <button className="border-none font-bold ">
               Read Full Article <FaArrowRight className="inline-block" />
             </button>
