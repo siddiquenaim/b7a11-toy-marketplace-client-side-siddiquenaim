@@ -24,11 +24,22 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="space-x-9 menu-horizontal px-1 font-semibold">
-          <NavLink to="/" className="hover:bg-[#A70B22] py-2 px-3 rounded-lg">
+          <NavLink
+            style={({ isActive }) => ({
+              color: isActive ? "#fff" : "#fff",
+              background: isActive ? "#A70B22" : "#CF102D",
+            })}
+            to="/"
+            className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
+          >
             Home
           </NavLink>
           {user && (
             <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "#fff" : "#fff",
+                background: isActive ? "#A70B22" : "#CF102D",
+              })}
               to="/my-toys"
               className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
             >
@@ -37,6 +48,10 @@ const Navbar = () => {
           )}
           {user && (
             <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "#fff" : "#fff",
+                background: isActive ? "#A70B22" : "#CF102D",
+              })}
               to="/add-a-toy"
               className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
             >
@@ -44,12 +59,20 @@ const Navbar = () => {
             </NavLink>
           )}
           <NavLink
+            style={({ isActive }) => ({
+              color: isActive ? "#fff" : "#fff",
+              background: isActive ? "#A70B22" : "#CF102D",
+            })}
             to="/blogs"
             className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
           >
             Blogs
           </NavLink>
           <NavLink
+            style={({ isActive }) => ({
+              color: isActive ? "#fff" : "#fff",
+              background: isActive ? "#A70B22" : "#CF102D",
+            })}
             to="/all-toys"
             className="hover:bg-[#A70B22] py-2 px-3 rounded-lg"
           >
@@ -66,6 +89,10 @@ const Navbar = () => {
           ) : (
             <div className="py-2 px-3">
               <NavLink
+                style={({ isActive }) => ({
+                  color: isActive ? "#fff" : "#fff",
+                  background: isActive ? "#A70B22" : "#CF102D",
+                })}
                 to="/login"
                 className="hover:bg-[#A70B22] hover:text-white mr-9 py-2 px-3 rounded-lg"
               >
@@ -73,6 +100,10 @@ const Navbar = () => {
               </NavLink>
 
               <NavLink
+                style={({ isActive }) => ({
+                  color: isActive ? "#fff" : "#fff",
+                  background: isActive ? "#A70B22" : "#CF102D",
+                })}
                 to="/register"
                 className="hover:bg-[#A70B22] hover:text-white  py-2 px-3 rounded-lg"
               >
