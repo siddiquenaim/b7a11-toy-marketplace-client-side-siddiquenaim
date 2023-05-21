@@ -2,6 +2,9 @@ import React from "react";
 import { FaArrowRight, FaBeer } from "react-icons/fa";
 
 const ArticleSection = () => {
+  const handleComingSoon = (article) => {
+    alert(`${article.title} coming soon`);
+  };
   const articles = [
     {
       id: 1,
@@ -40,7 +43,13 @@ const ArticleSection = () => {
       </h1>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {articles.map((article) => (
-          <div key={article.id} className="p-4 bg-white border">
+          <div
+            key={article.id}
+            data-aos="flip-right"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="1500"
+            className="p-4 bg-white border"
+          >
             <img
               src={article.image}
               alt={article.title}
@@ -50,7 +59,10 @@ const ArticleSection = () => {
             <p className="text-gray-700 mb-4">
               {article.content.slice(0, 100)}...
             </p>
-            <button className="border-none font-bold ">
+            <button
+              onClick={() => handleComingSoon(article)}
+              className="border-none font-bold"
+            >
               Read Full Article <FaArrowRight className="inline-block" />
             </button>
           </div>

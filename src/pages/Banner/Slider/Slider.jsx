@@ -41,7 +41,7 @@ const Slider = () => {
             </p>
             <div>
               <button className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none mr-5 text-white">
-                Start Now
+                <a href="#category">Start Now</a>
               </button>
             </div>
             <div className="carousel-boult">
