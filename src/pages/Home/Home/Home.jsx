@@ -2,6 +2,7 @@ import React from "react";
 import Banner from "../../Banner/Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
+import ArticleSection from "../ArticleSection/ArticleSection";
 
 const Home = () => {
   {
@@ -12,6 +13,7 @@ const Home = () => {
       <Banner></Banner>
       <Gallery></Gallery>
       <ShopByCategory></ShopByCategory>
+      <ArticleSection></ArticleSection>
     </div>
   );
 };

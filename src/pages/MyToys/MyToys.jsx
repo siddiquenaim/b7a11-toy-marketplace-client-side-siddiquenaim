@@ -10,14 +10,33 @@ const MyToys = () => {
 
   const [toys, setToys] = useState([]);
   const { user } = useContext(AuthContext);
+  const [isActive, setIsActive] = useState("");
 
   const url = `https://toy-marketplace-server-nine-sigma.vercel.app/mytoys?sellerEmail=${user?.email}`;
+
+  const ascendingUrl = `https://toy-marketplace-server-nine-sigma.vercel.app/myToys?sellerEmail=${user?.email}&&sort=1`;
+
+  const descendingUrl = `https://toy-marketplace-server-nine-sigma.vercel.app/myToys?sellerEmail=${user?.email}&&sort=desc`;
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [url]);
+
+  const handleSortAscending = (value) => {
+    fetch(ascendingUrl)
+      .then((res) => res.json())
+      .then((data) => setToys(data));
+    setIsActive(value);
+  };
+
+  const handleSortDescending = (value) => {
+    setIsActive(value);
+    fetch(descendingUrl)
+      .then((res) => res.json())
+      .then((data) => setToys(data));
+  };
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -53,6 +72,34 @@ const MyToys = () => {
   return (
     <div className="mb-20 mt-10">
       <h1 className="text-5xl text-center font-bold mb-10">My Toys</h1>
+      <h2 className="text-center text-xl font-bold">Sort By Price</h2>
+      <div className="flex justify-center items-center mt-5 mb-7">
+        <div className="flex items-center border font-semibold">
+          <div>
+            <div
+              onClick={() => handleSortAscending("asc")}
+              className={`btn-sort py-3 px-5 cursor-pointer ${
+                isActive == "asc" &&
+                "bg-[#CF102D] hover:bg-[#A70B22] border-none normal-case text-white"
+              }`}
+            >
+              Ascending order
+            </div>
+          </div>
+
+          <div>
+            <div
+              onClick={() => handleSortDescending("desc")}
+              className={`btn-sort py-3 px-5 cursor-pointer border-l-2 ${
+                isActive == "desc" &&
+                "bg-[#CF102D] hover:bg-[#A70B22] border-none normal-case text-white"
+              }`}
+            >
+              Descending order
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="overflow-x-auto">
         <table className="table w-[90%] lg:w-[90%] mx-auto">
           {/* head */}
