@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const SingleToy = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   const toyDetails = useLoaderData();
   const {
     availableQuantity,
@@ -75,9 +79,6 @@ const SingleToy = () => {
 
       <div className="mt-15 flex justify-center items-center">
         <button
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
           onClick={handleAddToCart}
           className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none mr-5 text-white mt-5"
         >

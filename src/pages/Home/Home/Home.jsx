@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../../Banner/Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
@@ -9,6 +9,10 @@ const Home = () => {
   {
     document.title = "Home - Bricktopia";
   }
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <Banner></Banner>

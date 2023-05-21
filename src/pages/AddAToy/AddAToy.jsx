@@ -59,6 +59,7 @@ const AddAToy = () => {
             showConfirmButton: true,
             timer: 1500,
           });
+          form.reset();
         }
       });
   };

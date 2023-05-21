@@ -1,11 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const ShopByCategory = () => {
   const [toys, setToys] = useState([]);
   const [activeTab, setActiveTab] = useState("all");
   const [showMore, setShowMore] = useState(false);
   const [hideButton, setHideButton] = useState(false);
+  const { user } = useContext(AuthContext);
+
+  const handleNotify = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Your must login to have the access!",
+      showConfirmButton: true,
+      timer: 1500,
+    });
+  };
 
   useEffect(() => {
     fetch(
@@ -23,6 +35,12 @@ const ShopByCategory = () => {
   const handleShowMore = () => {
     setShowMore(!showMore);
   };
+
+  useEffect(() => {
+    if (toys.length === 15) {
+      setHideButton(true);
+    }
+  }, [toys]);
 
   return (
     <div id="category" className=" mx-auto w-[90%] my-20">
@@ -87,7 +105,10 @@ const ShopByCategory = () => {
                   <span className="font-bold">Rating:</span> {toy?.rating}
                 </p>
               </div>
-              <Link to={`/toy-details/${toy?._id}`}>
+              <Link
+                onClick={!user && handleNotify}
+                to={`/toy-details/${toy?._id}`}
+              >
                 <button className="btn bg-[#CF102D] hover:bg-[#A70B22] border-none mr-5 text-white">
                   View Details
                 </button>

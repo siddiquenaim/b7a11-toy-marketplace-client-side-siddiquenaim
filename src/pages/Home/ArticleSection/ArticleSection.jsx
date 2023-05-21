@@ -1,9 +1,14 @@
 import React from "react";
 import { FaArrowRight, FaBeer } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const ArticleSection = () => {
   const handleComingSoon = (article) => {
-    alert(`${article.title} coming soon`);
+    Swal.fire({
+      title: `${article.title} coming soon`,
+      showConfirmButton: true,
+      timer: 1500,
+    });
   };
   const articles = [
     {

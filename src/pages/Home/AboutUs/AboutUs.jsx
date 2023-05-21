@@ -1,9 +1,14 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const AboutUsSection = () => {
   const handleAboutUs = () => {
-    alert("More about us coming soon!");
+    Swal.fire({
+      title: "More about us coming soon",
+      showConfirmButton: true,
+      timer: 1500,
+    });
   };
   return (
     <section className=" mx-auto w-[95%] my-20">

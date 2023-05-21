@@ -1,11 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   {
     document.title = "Login - Bricktopia";
   }
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
@@ -46,7 +51,7 @@ const Login = () => {
             You must login first to have the access!
           </p>
         )}
-        <div className="card flex-shrink-0 w-full max-w-sm lg:max-w-3xl shadow-2xl bg-base-100 lg:px-10">
+        <div className="card flex-shrink-0 w-full max-w-sm lg:max-w-3xl shadow-2xl bg-base-100 lg:px-10 mx-auto">
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -93,9 +98,9 @@ const Login = () => {
           <div className="divider">OR</div>
           <button
             onClick={handleGoogleLogin}
-            className="btn btn-block bg-blue-500 border-none hover:bg-blue-800"
+            className="btn bg-[#1019cf] hover:bg-[#2a0ba7] border-none text-white max-w-[75%] mx-auto"
           >
-            Login with Google
+            <FaGoogle className="mr-3"></FaGoogle> Login with Google
           </button>
           <p className="text-center pb-4 mt-4">
             New at Bricktopia?{" "}
