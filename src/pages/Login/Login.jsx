@@ -5,7 +5,7 @@ import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   {
-    document.title = "Login - Bricktopia";
+    document.title = "Login | Bricktopia";
   }
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

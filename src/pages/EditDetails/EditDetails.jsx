@@ -15,7 +15,7 @@ const EditDetails = () => {
   } = toyInfo;
 
   {
-    document.title = `Update ${name} - Bricktopia`;
+    document.title = `Update ${name} | Bricktopia`;
   }
 
   const handleUpdateToy = (event, id) => {

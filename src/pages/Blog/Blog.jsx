@@ -2,7 +2,7 @@ import React from "react";
 
 const Blog = () => {
   {
-    document.title = "Blogs - Bricktopia";
+    document.title = "Blogs | Bricktopia";
   }
   return (
     <div className="mb-20 mt-10">

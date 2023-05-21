@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
   {
-    document.title = "All Toys - Bricktopia";
+    document.title = "All Toys | Bricktopia";
   }
 
   const [allToys, setAllToys] = useState([]);

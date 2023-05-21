@@ -22,7 +22,7 @@ const SingleToy = () => {
   } = toyDetails;
 
   {
-    document.title = `${name} - Bricktopia`;
+    document.title = `${name} | Bricktopia`;
   }
 
   const handleAddToCart = () => {

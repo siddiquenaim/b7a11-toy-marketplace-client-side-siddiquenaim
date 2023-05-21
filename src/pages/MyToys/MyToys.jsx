@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const MyToys = () => {
   {
-    document.title = "My Toys - Bricktopia";
+    document.title = "My Toys | Bricktopia";
   }
 
   const [toys, setToys] = useState([]);

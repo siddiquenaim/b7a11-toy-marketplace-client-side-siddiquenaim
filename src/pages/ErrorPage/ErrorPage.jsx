@@ -4,7 +4,7 @@ import errorPic from "/error.gif";
 
 const ErrorPage = () => {
   {
-    document.title = "ERROR! - Bricktopia";
+    document.title = "ERROR | Bricktopia";
   }
   const { error, status } = useRouteError();
 

@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const AddAToy = () => {
   {
-    document.title = "Add a Toy - Bricktopia";
+    document.title = "Add a Toy | Bricktopia";
   }
   const { user } = useContext(AuthContext);
   const [selectedOption, setSelectedOption] = useState(null);
