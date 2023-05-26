@@ -40,7 +40,6 @@ const AddAToy = () => {
       availableQuantity,
       details,
     };
-    // console.log(toyInfo);
 
     fetch("https://toy-marketplace-server-nine-sigma.vercel.app/allData", {
       method: "POST",
